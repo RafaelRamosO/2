@@ -4,42 +4,51 @@ public class p2p14_1s21{
 	public static void main(String[] args) {
 		Scanner teclado = new Scanner(System.in);
 		int[][] Ma, Mb, Mc;
-		int fa,ca,fb,cb;
-		System.out.println("Ingresa el numero de filas para la Matriz A");
+		int fa,ca,fb,cb,f,c,r=0,h;
+		System.out.println("Ingresa el numero de filas para la matriz A");
 		fa = teclado.nextInt();
-		System.out.println("Ingresa el numero de columnas para la Matriz A");
+		System.out.println("Ingresa el numero de columnas para la matriz A");
 		ca = teclado.nextInt();
-		System.out.println("Ingresa el numero de filas para la Matriz B");
+		System.out.println("Ingresa el numero de filas para la matriz B");
 		fb = teclado.nextInt();
-		System.out.println("Ingresa el numero de columnas para la Matriz B");
+		System.out.println("Ingresa el numero de columnas para la matriz B");
 		cb = teclado.nextInt();
 		if (ca == fb){
-			Ma = int[fa][ca];
-			Mb = int[fb][fcb];
-			Mc = int[fa][cb];
+			Ma = new int[fa][ca];
+			Mb = new int[fb][cb];
+			Mc = new int[fa][cb];
 			for (f=0;f<fa;f++){
 			    for (c=0;c<ca;c++){
 				    System.out.println("Ingresa el valor para Ma["+f+"]["+c+"]:");
-				    Ma[f][c]=teclado.nestInt();
+				    Ma[f][c]=teclado.nextInt();
 				}
 			}
 			for (f=0;f<fb;f++){
-			    for (c=0;c<ca;c++){
-				    System.out.println("Ingresa el valor para Mb["+f+"]["+c+"]:");
-				    Mb[f][c]=teclado.nestInt();
+			    for (c=0;c<cb;c++){
+				    System.out.println("Ingresa el valor para Ma["+f+"]["+c+"]:");
+				    Mb[f][c]=teclado.nextInt();
 			    }
 			}
 			//aqui empezamos la multiplicacion 
-			for (f=0;f<fb;f++){
+			for (f=0;f<fa;f++){
 			    for (c=0;c<cb;c++){
-			    	for(h=0;h<cb;h++){
-			    		r=Ma[f][h]*Mb[c][h]
+			    	for(h=0;h<fb;h++){
+			    		r=Ma[f][h]*Mb[c][h];
+			    		System.out.print("a["+f+"]["+h+"]("+Ma[f][h]+") * ");
+			    		System.out.println("b["+h+"]["+c+"]("+Mb[h][c]+")");
 			    	}
+			    	System.out.println("-------------------------------");
 			    	Mc[f][c]=r;
+			    	r=0;
 			    }
+			}
+			for (f=0;f<fa;f++){
+			    for (c=0;c<cb;c++){
+			    	System.out.println("el resultado para Mc["+f+"]["+c+"]: "+Mc[f][c]);	
+			    }  
 		    }
 		}else{
-			System.out.println("No se puede realizar el proceso de multiplicacion");
+			System.out.println("No se puede realizar la multiplicacion");
 		}
 	}
 }
